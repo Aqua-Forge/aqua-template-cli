@@ -4,3 +4,6 @@ build
 
 # Tests module
 tests
+
+# Local configs
+.vscode
