@@ -4,7 +4,7 @@
 CC        := g++
 CC_FLAGS  := -c         \
              -W         \
-						 -std=c++17 \
+             -std=c++17 \
             #  -Wall     \
             #  -ansi     \
             #  -pedantic \
@@ -15,9 +15,11 @@ INCLUDE_DIR  := include
 LIB_DIR      := lib
 BIN_DIR      := bin
 OBJ_DIR      := build
+TESTS_DIR    := tests
 
 # Filenames
-TARGET       := main
+TARGET       := template-aqua
+TEST_TARGET  := main_tests
 SRC          := $(wildcard $(SRC_DIR)/*.cpp)
 H_SRC        := $(wildcard $(INCLUDE_DIR)/*.hpp)
 OBJ          := $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
@@ -42,6 +44,7 @@ objFolder:
 binFolder:
 	@mkdir -p $(BIN_DIR)
 
+# Cleaning binaries and static libraries (object files)
 clean:
 	@echo "🧹 Cleaning..."
 	@rm -r $(OBJ_DIR)
@@ -52,4 +55,14 @@ clean:
 run:
 	@./$(BIN_DIR)/$(TARGET)
 
-.PHONY: all clean run
+# Building tests
+test: $(TEST_TARGET)
+	@echo "🚙 Running tests:"
+	@./$(TESTS_DIR)/$(TEST_TARGET)
+
+# Executing tests
+$(TEST_TARGET): 
+	@echo "🛠️  Building tests..."
+	@$(CC) $(TESTS_DIR)/*.cpp -I$(INCLUDE_DIR) --std=c++17 -o $(TESTS_DIR)/$@
+
+.PHONY: all clean run test
