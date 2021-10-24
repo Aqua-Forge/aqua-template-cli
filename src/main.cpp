@@ -1,8 +1,11 @@
+#include "CLIParser.hpp"
+#include "Generator.hpp"
 #include <iostream>
 
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 {
-  std::cout << "Hello world!" << std::endl;
+    CLIParser parser(argc, argv);
+    Generator generator(parser.getParameters());
 
-  return 0;
+    return 0;
 }
