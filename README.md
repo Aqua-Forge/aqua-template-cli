@@ -8,7 +8,7 @@ Automatically generates a project template of the specified language/technology.
 
 - [Dependencies](#dependencies)
 - [Installation](#installation)
-- [Executing](#executing)
+- [How to Use](#how-to-use)
 
 ---
 
@@ -27,6 +27,6 @@ Automatically generates a project template of the specified language/technology.
 
 ---
 
-# Executing
+# How to Use
 
 
