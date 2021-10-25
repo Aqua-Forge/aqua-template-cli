@@ -16,9 +16,11 @@ LIB_DIR      := lib
 BIN_DIR      := bin
 OBJ_DIR      := build
 TESTS_DIR    := tests
+TEMPLATE_DIR := templates
+PREFIX       := /usr/local
 
 # Filenames
-TARGET       := template-aqua
+TARGET       := aqua-template
 TEST_TARGET  := main_tests
 SRC          := $(wildcard $(SRC_DIR)/*.cpp)
 H_SRC        := $(wildcard $(INCLUDE_DIR)/*.hpp)
@@ -55,6 +57,12 @@ clean:
 run:
 	@./$(BIN_DIR)/$(TARGET)
 
+# Installing the project locally
+install:
+	@install -m 777 $(BIN_DIR)/$(TARGET) $(PREFIX)/bin
+	@install -d $(PREFIX)/etc/$(TARGET)/
+	@cp -rf $(TEMPLATE_DIR) $(PREFIX)/etc/$(TARGET)/
+
 # Building tests
 test: $(TEST_TARGET)
 	@echo "🚙 Running tests:"
@@ -65,4 +73,4 @@ $(TEST_TARGET):
 	@echo "🛠️  Building tests..."
 	@$(CC) $(TESTS_DIR)/*.cpp -I$(INCLUDE_DIR) --std=c++17 -o $(TESTS_DIR)/$@
 
-.PHONY: all clean run test
+.PHONY: all clean run test install
