@@ -67,3 +67,15 @@ Parameter Parameters::findByFlag(char flag)
     }
 }
 
+
+std::vector<Parameter> Parameters::getAll()
+{
+    std::vector<Parameter> params;
+    std::map<char, Parameter>::iterator it;
+    for(it = this->parameters.begin(); it != this->parameters.end(); ++it)
+    {
+        params.push_back(it->second);
+    }
+    return params;
+}
+

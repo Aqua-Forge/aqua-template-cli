@@ -24,6 +24,7 @@ public:
     Parameters();
     Parameter findByName(std::string flagName);
     Parameter findByFlag(char flag);
+    std::vector<Parameter> getAll();
     void displayHelp();
 
 private:

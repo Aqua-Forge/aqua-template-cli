@@ -11,7 +11,18 @@
 class Generator
 {
 public:
+    /**
+     * @brief Construct a new Generator object
+     * 
+     * @param params 
+     */
     Generator(std::vector<Parameter> params);
+
+    /**
+     * @brief Prints header with Copyrights.
+     * 
+     */
+    void displayHeader();
 
     /**
      * @brief Prints the help informations about aqua-template CLI.
@@ -20,11 +31,10 @@ public:
     void displayHelp();
 
     /**
-     * @brief Prints header with Copyrights.
+     * @brief Prints the available languages for project template generation.
      * 
      */
-    void displayHeader();
-
+    void displayLanguages();
 
     /**
      * @brief Verifies if the specified language is available for template generating.
@@ -35,15 +45,33 @@ public:
      */
     bool checkLanguage(std::string lang);
 
-
     /**
      * @brief Sets the generator configurations, like project name and language.
      * 
      */
     void setConfigs();
 
+    /**
+     * @brief Asks for user to input the project name.
+     * 
+     */
+    void askProjectName();
+
+    /**
+     * @brief Asks for user to input the project language.
+     * 
+     */
+    void askProjectLang();
+
+    /**
+     * @brief Runs the generator with the arguments passed.
+     * 
+     */
+    void run();
+
 private:
     std::vector<Parameter> parameters;
+    std::vector<Parameter> fullParameters;
     bool fgHelp = false;
     bool fgLanguages = false;
     std::map<std::string, std::string> configs = {
