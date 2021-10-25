@@ -47,7 +47,7 @@ Parameter Parameters::findByName(std::string flagName)
             return it->second;
         }
     }
-    std::string exc = std::string("Unknown parameter `") + flagName + std::string("`.");
+    std::string exc = std::string("Unknown parameter `") + flagName + std::string("`. Type -h for help.");
     throw std::runtime_error(exc).what();
 }
 
@@ -62,7 +62,7 @@ Parameter Parameters::findByFlag(char flag)
     {
         std::string exc = std::string("Unknown parameter `");
         exc.push_back(flag);
-        exc += "`.";
+        exc += "`. Type -h for help.";
         throw std::runtime_error(exc).what();
     }
 }

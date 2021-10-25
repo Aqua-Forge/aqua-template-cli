@@ -50,7 +50,7 @@ void Generator::displayHelp()
 void Generator::displayLanguages()
 {
     std::cout << "Available template languages:" << std::endl;
-    std::vector<std::string> langs = helpers::listdir("templates");
+    std::vector<std::string> langs = helpers::listdir(this->templatesPath);
     for (std::vector<std::string>::iterator it = langs.begin(); it != langs.end(); ++it)
     {
         std::cout << "\t- " << *it << std::endl;
@@ -60,7 +60,7 @@ void Generator::displayLanguages()
 
 bool Generator::checkLanguage(std::string lang)
 {
-    std::vector<std::string> availLanguages = helpers::listdir("templates");
+    std::vector<std::string> availLanguages = helpers::listdir(this->templatesPath);
     return std::find(availLanguages.begin(), availLanguages.end(), lang) != availLanguages.end();
 }
 
@@ -127,6 +127,13 @@ void Generator::askProjectLang()
 }
 
 
+void Generator::generateProject()
+{
+    helpers::copy(this->templatesPath + "/" + this->configs["project_lang"],
+                  this->configs["project_name"]);
+}
+
+
 void Generator::run()
 {
     try
@@ -151,6 +158,8 @@ void Generator::run()
             {
                 this->askProjectLang();
             }
+
+            this->generateProject();
         }
     }
     catch(const char* err)

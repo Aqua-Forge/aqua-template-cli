@@ -64,6 +64,12 @@ public:
     void askProjectLang();
 
     /**
+     * @brief Generates a project template.
+     * 
+     */
+    void generateProject();
+
+    /**
      * @brief Runs the generator with the arguments passed.
      * 
      */
@@ -74,6 +80,7 @@ private:
     std::vector<Parameter> fullParameters;
     bool fgHelp = false;
     bool fgLanguages = false;
+    std::string templatesPath = "/usr/local/etc/aqua-template/templates";
     std::map<std::string, std::string> configs = {
         {"project_name", ""},
         {"project_lang", ""}

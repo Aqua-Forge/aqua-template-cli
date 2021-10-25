@@ -14,8 +14,8 @@ namespace helpers
     /**
      * @brief Verifies if str starts with subst
      * 
-     * @param str 
-     * @param substr 
+     * @param str String to be verified
+     * @param substr Substring to be matched
      * @return true 
      * @return false 
      */
@@ -25,8 +25,8 @@ namespace helpers
     /**
      * @brief Split str into a vector, using delimiter as separator
      * 
-     * @param str 
-     * @param delimiter 
+     * @param str Text to be splitted
+     * @param delimiter Delimiter character
      * @return std::vector< std::string> 
      */
     std::vector<std::string> split(std::string const &str, const char delimiter);
@@ -39,5 +39,14 @@ namespace helpers
      * @return std::vector< std::string> 
      */
     std::vector<std::string> listdir(std::string path);
+
+
+    /**
+     * @brief Copy the source dir/file to the destination path
+     * 
+     * @param src Source path
+     * @param dst Destination path
+     */
+    void copy(std::string src, std::string dst);
 
 }

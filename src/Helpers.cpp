@@ -30,3 +30,9 @@ std::vector<std::string> helpers::listdir(std::string path)
     }
     return content;
 }
+
+
+void helpers::copy(std::string src, std::string dst)
+{
+    fs::copy(src, dst, fs::copy_options::overwrite_existing | fs::copy_options::recursive);
+}
