@@ -105,6 +105,10 @@ void Generator::askProjectName()
     std::string projectName;
     std::cout << "Please enter the project name: ";
     std::getline(std::cin, projectName);
+    if (projectName == "")
+    {
+        throw "Invalid project name!";
+    }
     this->configs["project_name"] = projectName;
 }
 
@@ -164,6 +168,7 @@ void Generator::run()
     }
     catch(const char* err)
     {
+        std::cerr << "Error: ";
         std::cerr << err << '\n';
         exit(1);
     }
