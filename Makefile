@@ -62,6 +62,7 @@ install:
 	@install -m 777 $(BIN_DIR)/$(TARGET) $(PREFIX)/bin
 	@install -d $(PREFIX)/etc/$(TARGET)/
 	@cp -rf $(TEMPLATE_DIR) $(PREFIX)/etc/$(TARGET)/
+	@chmod -R a+rwx $(PREFIX)/etc/$(TARGET)
 
 # Building tests
 test: $(TEST_TARGET)
