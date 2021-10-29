@@ -21,7 +21,6 @@ namespace helpers
      */
     bool startsWith (std::string str, std::string substr);
 
-
     /**
      * @brief Split str into a vector, using delimiter as separator
      * 
@@ -31,7 +30,6 @@ namespace helpers
      */
     std::vector<std::string> split(std::string const &str, const char delimiter);
 
-
     /**
      * @brief List all directories/files in the specified path
      * 
@@ -39,7 +37,6 @@ namespace helpers
      * @return std::vector< std::string> 
      */
     std::vector<std::string> listdir(std::string path);
-
 
     /**
      * @brief Copy the source dir/file to the destination path

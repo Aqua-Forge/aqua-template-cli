@@ -1,12 +1,30 @@
 #include "CLIParser.hpp"
 
 
-CLIParser::CLIParser(int size, char **args)
+CLIParser::CLIParser(int size_, char **args_) : size(size_), args(args_) {}
+
+
+CLIParser::CLIParser() {}
+
+
+void CLIParser::setSize(int size_)
+{
+    this->size = size_;
+}
+
+
+void CLIParser::setArgs(char** args_)
+{
+    this->args = args_;
+}
+
+
+void CLIParser::parse()
 {
     // Add all valid arguments to this->CLIParams
-    for (int i = 1; i < size; ++i)
+    for (int i = 1; i < this->size; ++i)
     {
-        std::string arg = std::string(args[i]);
+        std::string arg = std::string(this->args[i]);
 
         // Receiving a "--flagname" parameter.
         if (helpers::startsWith(arg, std::string("--")))
@@ -43,9 +61,9 @@ CLIParser::CLIParser(int size, char **args)
                 Parameter param = this->parameters.findByFlag(arg.at(0));
                 if (param.hasValue)
                 {
-                    if (i == size - 1)
+                    if (i == this->size - 1)
                         throw "Invalid syntax. Please use the format: -f value";
-                    param.value = std::string(args[++i]);
+                    param.value = std::string(this->args[++i]);
                 }
                 this->CLIParams.push_back(param);
             }

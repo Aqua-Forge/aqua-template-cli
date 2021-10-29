@@ -5,6 +5,7 @@
 int main(int argc, char *argv[])
 {
     CLIParser parser(argc, argv);
+    parser.parse();
     Generator generator(parser.getParameters());
     generator.run();
 

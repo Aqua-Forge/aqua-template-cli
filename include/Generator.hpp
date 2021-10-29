@@ -8,11 +8,15 @@
 #include "Helpers.hpp"
 
 
+/**
+ * @brief Responsible for generating the project.
+ * 
+ */
 class Generator
 {
 public:
     /**
-     * @brief Construct a new Generator object
+     * @brief Construct a new Generator object.
      * 
      * @param params 
      */
