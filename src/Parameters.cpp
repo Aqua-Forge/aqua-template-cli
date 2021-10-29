@@ -6,7 +6,7 @@ Parameters::Parameters()
     this->parameters['h'] = {
         'h',                                             // Flag
         "help",                                          // Flag Name
-        "Display this help",                             // Description
+        "Display this help.",                             // Description
         false,                                           // Has Value
         "",                                              // Value
     };
@@ -14,7 +14,7 @@ Parameters::Parameters()
     this->parameters['n'] = {
         'n',                                              // Flag
         "name",                                           // Flag Name
-        "Specifies the project name",                     // Description
+        "Specifies the project name.",                     // Description
         true,                                             // Has Value
         "",                                               // Value
     };
@@ -22,7 +22,7 @@ Parameters::Parameters()
     this->parameters['l'] = {
         'l',                                              // Flag
         "language",                                       // Flag Name
-        "Specifies the template's programming language",  // Description
+        "Specifies the template's programming language.",  // Description
         true,                                             // Has Value
         "",                                               // Value
     };
